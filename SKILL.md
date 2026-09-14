@@ -77,6 +77,8 @@ description: 导演并制作多类型视频，从故事、人物与声音参考�
 
 ### 本 fork 的 Infinite Canvas / Agnes 路线
 
+进入视频审片、剪辑选段或成片检查时，必须读取 [时间序列抽帧审片](references/contact-sheet-review.md)，执行“逐镜总览 → 异常区间加密 → 动作与连续性判断 → 剪辑决策 → 成片复核”。此能力通过技能文件和脚本提供，切换到 5.6-terra 等模型时仍应加载执行，不依赖旧对话记忆。
+
 用户选择本地画布、Agnes，或要求继续该路线的短片时，先读 [本地短片完整流程](references/local-film-pipeline.md) 和 [Infinite Canvas / Agnes 工具适配](tools/infinite-canvas-agnes.md)。需要记录项目或自动剪辑时，分别使用流程文档链接的 JSON 模板与渲染脚本。
 
 此路线的项目确认记录优先于下文及 Mode 文件中的平台默认值：使用用户已选定的模型、分辨率、生成时长和并发数，不因上游固定 Seedance Pro、15秒或 CLI 规则而切换渠道或重新索要已有授权。Mode 的剧情与资产方法仍适用。自定义风格经确认即可采用，不将本次圆润3D样片提升为所有 Mode 的默认风格。
