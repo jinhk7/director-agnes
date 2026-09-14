@@ -1,6 +1,6 @@
 ---
 name: director
-description: 导演并制作多类型视频，从创意、研究、剧本、视觉开发、人物与声音设计、分镜和生成 Prompt，一直推进到素材生成、任务追踪与交付。适用于 Storytime Animation、Animated Explainer 与 Cinematic Drama，三个 Mode 均已完成实际作品验证。尚未建立专属 Mode 的类型不得冒充已支持流程。
+description: 导演并制作多类型视频，从故事、人物与声音参考、分镜和动作首帧，推进到生成、审片、剪辑与成片交付。支持 Storytime Animation、Animated Explainer、Cinematic Drama；使用本地 Infinite Canvas 与 Agnes 时支持分阶段确认、断点续作和本地成片流程。
 ---
 
 # director
@@ -74,6 +74,14 @@ description: 导演并制作多类型视频，从创意、研究、剧本、视�
 内置音色的唯一正式媒体源为顶级目录 `voices/`，权威清单为[内置音色库](references/reference-asset-library.md)。宿主项目可以额外登记私有人物与音色，但不得扫描历史作品冒充正式资产库。`repository-assets/` 只保存 README 封面、效果示例和 style 预览等仓库展示素材，不属于 skill 执行资产，也不得被工作流当作生成输入。
 
 ## 执行工具路由
+
+### 本 fork 的 Infinite Canvas / Agnes 路线
+
+用户选择本地画布、Agnes，或要求继续该路线的短片时，先读 [本地短片完整流程](references/local-film-pipeline.md) 和 [Infinite Canvas / Agnes 工具适配](tools/infinite-canvas-agnes.md)。需要记录项目或自动剪辑时，分别使用流程文档链接的 JSON 模板与渲染脚本。
+
+此路线的项目确认记录优先于下文及 Mode 文件中的平台默认值：使用用户已选定的模型、分辨率、生成时长和并发数，不因上游固定 Seedance Pro、15秒或 CLI 规则而切换渠道或重新索要已有授权。Mode 的剧情与资产方法仍适用。自定义风格经确认即可采用，不将本次圆润3D样片提升为所有 Mode 的默认风格。
+
+本路线默认分阶段确认后自动推进到成片：确认创意、风格、人物与声音，核验当前生成范围和费用授权，之后自动首帧、生成、审片、剪辑和交付。用户只要求规划或素材时，到其指定阶段停止。关键确认与恢复规则见完整流程，不重复确认已获批准的阶段。
 
 Mode 和执行工具相互独立：Mode 决定制作什么，工具文档决定如何在用户选定的平台上生成、管理和下载媒体。任意 Mode 都可在平台能力足够时选择任意已适配 CLI。
 

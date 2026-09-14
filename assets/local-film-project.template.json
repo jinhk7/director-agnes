@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "title": "",
+  "stage": "brief",
+  "quality_target": "workflow_demo",
+  "mode": "cinematic-drama",
+  "brief": {"story": "", "style": "", "aspect_ratio": "16:9", "target_seconds": null, "dialogue_language": "zh", "subtitles": false, "music": "unspecified"},
+  "approvals": {"creative": null, "references": null, "voice": null, "generation_scope": null, "cost_scope": null, "auto_edit_after_approval": true},
+  "canvas": {"current_id": null, "previous_ids": [], "url": null, "browser_profile": null, "export_file": null},
+  "execution": {"route": "infinite-canvas-agnes", "image_model": null, "video_model": null, "max_in_flight": 3, "resolution": "720p"},
+  "assets": [],
+  "shots": [],
+  "shot_template": {
+    "shot_id": "S01", "version": 1,
+    "start_state": "", "action": "", "end_state": "", "camera": "", "dialogue": "", "narrative_role": "",
+    "reference_roles": [], "image_prompt_file": null, "video_prompt_file": null,
+    "keyframe": {"node_id": null, "storage_key": null, "local_file": null, "sha256": null, "review": {"status": "pending", "source": null, "evidence": null, "at": null}},
+    "generation": {"mode": "frames", "seconds": 8, "references": [], "attempts": []},
+    "review": {"file": "pending", "playback": "pending", "action": "pending", "continuity": "pending", "dialogue": "pending", "lip_sync": "pending", "evidence": []},
+    "edit_decision": null
+  },
+  "attempt_template": {"attempt_id": null, "task_id": null, "result_node_id": null, "status": "not_submitted", "submitted_at": null, "last_checked_at": null, "expanded_prompt_file": null, "parameters": {}, "local_file": null, "sha256": null, "error": null},
+  "delivery": {"version": null, "edit_manifest": null, "local_file": null, "sha256": null, "canvas_node_id": null, "decode_check": "pending", "playback_check": "pending", "narrative_review": "pending", "known_issues": []}
+}

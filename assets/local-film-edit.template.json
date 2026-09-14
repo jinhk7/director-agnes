@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "sample_rate": 48000,
+  "fade_in": 0.25,
+  "fade_out": 0.5,
+  "loudness_lufs": -18,
+  "clips": [
+    {"shot_id": "S01", "file": "../video/S01-v1.mp4", "in": 0.0, "out": 5.0, "crop": null, "reason": "保留完整动作；入出点以实际素材审核为准"}
+  ]
+}
