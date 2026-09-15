@@ -49,11 +49,24 @@ def main():
     frames = []
     for index, timestamp in enumerate(times):
         frame = output / f"frame-{index:04d}.png"
-        run([ffmpeg, "-nostdin", "-n", "-hide_banner", "-loglevel", "error",
-             "-ss", str(timestamp), "-i", video, "-frames:v", "1", frame])
+        original_timestamp = timestamp
+        candidates = [timestamp]
+        # Container/audio duration may extend beyond the final video frame.
+        # Only recover the terminal sample, never conceal a missing middle frame.
+        if index == len(times)-1:
+            candidates += [round(max(start, timestamp-offset), 6) for offset in (0.1, 0.25)]
+        for timestamp in dict.fromkeys(candidates):
+            run([ffmpeg, "-nostdin", "-n", "-hide_banner", "-loglevel", "error",
+                 "-ss", str(timestamp), "-i", video, "-frames:v", "1", frame])
+            if frame.is_file():
+                break
         if not frame.is_file():
             raise ValueError(f"No frame decoded at {timestamp}; inspect source interval")
-        frames.append({"requested_source_seconds": timestamp, "file": frame.name})
+        if frames and timestamp <= frames[-1]["requested_source_seconds"]:
+            raise ValueError("Recovered tail overlaps previous sample; use an explicit --end")
+        frames.append({"requested_source_seconds": timestamp, "file": frame.name,
+                       "original_requested_source_seconds": original_timestamp,
+                       "tail_seek_adjusted": timestamp != original_timestamp})
     pages = []
     for first in range(0, len(frames), 12):
         group = frames[first:first+12]
